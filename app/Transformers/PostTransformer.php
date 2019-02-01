@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Transformers;
+
+use TCG\Voyager\Models\Post;
+use League\Fractal\TransformerAbstract;
+
+class PostTransformer extends TransformerAbstract
+{
+    public function transform(Post $post){
+        return[
+            'title' => $post->title,
+            'body' => $post->body,
+        ];
+    }
+}
