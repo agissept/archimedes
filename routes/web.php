@@ -12,7 +12,11 @@
 */
 
 Route::get('/', 'PostController@showPost');
-Route::get('/a', 'PostController@a');
+Route::get('/category-article', 'CategoryArticleController@showPost');
+Route::get('/category-video', 'CategoryVideoController@showPost');
+Route::get('/gallery', 'GalleryController@show');
+Route::get('/about', 'AboutController@show');
+Route::get('/detail-post/{id}', 'DetailPostController@showPost');
 
 
 Route::group(['prefix' => 'admin'], function () {

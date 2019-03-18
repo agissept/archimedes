@@ -11,6 +11,8 @@ class PostTransformer extends TransformerAbstract
         return[
             'title' => $post->title,
             'body' => $post->body,
+            'image' => $post->image,
+            'date' => date('d-M-Y', strtotime($post->created_at)),
         ];
     }
 }

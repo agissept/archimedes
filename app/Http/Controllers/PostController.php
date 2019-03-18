@@ -12,8 +12,13 @@ class PostController extends Controller
 
     public function showPost()
     {
-        $post = Post::all()->take(6);
-        return view('index', [ 'posts' => $post ]);
+        $postsSlide = Post::all()->take(3);
+        
+        $postAll = Post::paginate(12);
+
+        $popularPosts = Post::orderBy('featured', 'asc')->take(6)->get();
+        return view('index', [ 'postsSlide' => $postsSlide , 'postAll' => $postAll, 'popularPosts' => $popularPosts]);
+        
     }
 
     public function a()
